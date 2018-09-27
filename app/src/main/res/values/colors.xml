@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorMovies">#EA4335</color>
+    <color name="colorTranslate">#FBBC05</color>
+    <color name="colorDictionary">#34A853</color>
+    <color name="colorQuiz">#656565</color>
+    <color name="colorSituation">#4285F4</color>
+</resources>

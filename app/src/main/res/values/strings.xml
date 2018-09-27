@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">북한말 배우미</string>
+    
+    <string name="main_btn_movies">북한어 영상 모음</string>
+    <string name="main_translate">번역기</string>
+    <string name="main_dictionary">사전</string>
+    <string name="main_situation">상황별 문장</string>
+    <string name="main_quiz">OX 퀴즈</string>
+</resources>
