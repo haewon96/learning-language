@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TranslateTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorTranslate</item>
+        <item name="colorPrimaryDark">@color/colorTranslateDark</item>
+        <item name="colorAccent">@color/colorTranslateAccent</item>
+    </style>
+
 </resources>

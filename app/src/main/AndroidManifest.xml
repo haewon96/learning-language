@@ -16,6 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.MoviesActivity"
+            android:label="@string/all_movies" />
+        <activity
+            android:name=".activity.QuizActivity"
+            android:label="@string/all_quiz" />
+        <activity
+            android:name=".activity.SituationActivity"
+            android:label="@string/all_situation" />
+        <activity
+            android:name=".activity.TranslatorActivity"
+            android:label="@string/all_translate"
+            android:theme="@style/TranslateTheme" />
+
     </application>
 
 </manifest>
