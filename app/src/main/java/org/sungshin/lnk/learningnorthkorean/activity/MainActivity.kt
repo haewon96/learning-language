@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import org.sungshin.lnk.learningnorthkorean.R
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -26,13 +27,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btn_main_movies ->
-                startActivity(Intent(this, MoviesActivity::class.java))
+                startActivity<MoviesActivity>()
             R.id.btn_main_translate ->
-                startActivity(Intent(this, TranslatorActivity::class.java))
+                startActivity<TranslatorActivity>()
             R.id.btn_main_situation ->
-                startActivity(Intent(this, SituationActivity::class.java))
+                startActivity<SituationActivity>()
             R.id.btn_main_quiz ->
-                startActivity(Intent(this, QuizActivity::class.java))
+                startActivity<QuizActivity>()
         }
     }
 }
