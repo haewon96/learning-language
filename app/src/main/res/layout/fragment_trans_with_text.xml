@@ -1,10 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_trans_exchange"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="text"/>
-</android.support.constraint.ConstraintLayout>
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_trans_korean_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/all_south_korean"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/ib_trans_exchange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:contentDescription="@string/all_translate"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_exchange_arrows"
+            app:layout_constraintLeft_toRightOf="@id/tv_trans_korean1" />
+
+        <TextView
+            android:id="@+id/tv_trans_korean_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/all_north_korean"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/ib_trans_exchange" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@+id/layout_trans_exchange" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_trans_korean1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/back_trans_korean"
+                android:paddingHorizontal="5dp"
+                android:text="@string/all_south_korean"
+                android:textColor="@android:color/white" />
+
+            <ImageButton
+                android:id="@+id/ib_trans_paste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_toLeftOf="@id/ib_trans_erase"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_paste_24dp" />
+
+            <ImageButton
+                android:id="@+id/ib_trans_erase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="10dp"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_eraser_24dp" />
+
+            <EditText
+                android:id="@+id/et_trans_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_trans_korean1"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="번역할 문장을 입력해주세요."
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/layout_trans_exchange" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_trans_korean2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/back_trans_korean"
+                android:paddingHorizontal="5dp"
+                android:text="@string/all_north_korean"
+                android:textColor="@android:color/white" />
+
+            <ImageButton
+                android:id="@+id/ib_trans_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_copy_24dp" />
+
+            <TextView
+                android:id="@+id/tv_trans_output"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_trans_korean2"
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="10dp"
+                android:text="결과창입니다"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

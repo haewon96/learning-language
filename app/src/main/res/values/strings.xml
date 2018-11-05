@@ -6,6 +6,8 @@
     <string name="all_dictionary">사전</string>
     <string name="all_situation">상황별 문장</string>
     <string name="all_quiz">OX 퀴즈</string>
+    <string name="all_north_korean">북한어</string>
+    <string name="all_south_korean">남한어</string>
 
     <string name="menu_translate1">텍스트</string>
     <string name="menu_translate2">문자 인식</string>
