@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bnve_translate" />
 
-    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+    <android.support.design.widget.BottomNavigationView
         android:id="@+id/bnve_translate"
         android:layout_width="match_parent"
         android:layout_height="53dp"

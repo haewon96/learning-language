@@ -12,4 +12,6 @@
     <string name="menu_translate1">텍스트</string>
     <string name="menu_translate2">문자 인식</string>
     <string name="menu_translate3">음성 인식</string>
+    <string name="trans_output">번역 결과가 나타납니다.</string>
+    <string name="trans_btn">번역</string>
 </resources>

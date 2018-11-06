@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_main_movies_custom"
             android:drawableLeft="@drawable/ic_movie_36dp"
-            android:drawablePadding="-40dp"
+            android:drawablePadding="-25dp"
             android:paddingVertical="30dp"
             android:paddingLeft="60dp"
             android:text="@string/all_movies"

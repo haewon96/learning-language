@@ -41,6 +41,7 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ib_trans_exchange" />
+
     </LinearLayout>
 
     <View
@@ -99,10 +100,23 @@
                 android:background="@null"
                 android:gravity="top"
                 android:hint="번역할 문장을 입력해주세요."
-                android:paddingHorizontal="15dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="15dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_start_translate_custom"
+                android:drawableRight="@drawable/ic_arrow_right_24dp"
+                android:elevation="8dp"
+                android:padding="10dp"
+                android:text="@string/trans_btn"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <View
@@ -131,8 +145,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_copy_24dp" />
@@ -142,11 +156,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/tv_trans_korean2"
-                android:paddingHorizontal="15dp"
                 android:paddingBottom="10dp"
+                android:paddingHorizontal="15dp"
                 android:text="결과창입니다"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
+
 </LinearLayout>
