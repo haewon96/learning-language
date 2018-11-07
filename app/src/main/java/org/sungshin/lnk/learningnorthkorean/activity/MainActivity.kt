@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_main_translate.setOnClickListener(this)
         btn_main_situation.setOnClickListener(this)
         btn_main_quiz.setOnClickListener(this)
+        btn_main_dictionary.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity<SituationActivity>()
             R.id.btn_main_quiz ->
                 startActivity<QuizActivity>()
+            R.id.btn_main_dictionary ->
+                startActivity<DictionaryActivity>()
         }
     }
 }

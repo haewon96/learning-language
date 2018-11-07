@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="남한어"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="0.3dp"
+                android:background="@color/colorDictionaryAccent"
+                android:padding="2dp"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="북한어"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="0.3dp"
+                android:background="@color/colorDictionaryAccent"
+                android:padding="2dp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:padding="2dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
+        <TableRow
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="의미"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp" />
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="다른 의미"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp" />
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="남한 문법"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp" />
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="북한 문법"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp" />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
