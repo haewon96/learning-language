@@ -29,7 +29,9 @@
             android:name=".activity.TranslatorActivity"
             android:label="@string/all_translate"
             android:theme="@style/TranslateTheme" />
-
+        <activity
+            android:name=".activity.RecognizeTextActivity"
+            android:theme="@style/TranslateTheme" />
     </application>
 
 </manifest>
