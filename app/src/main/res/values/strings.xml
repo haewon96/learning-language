@@ -4,7 +4,7 @@
     <string name="all_movies">북한어 영상 모음</string>
     <string name="all_translate">번역기</string>
     <string name="all_dictionary">사전</string>
-    <string name="all_situation">상황별 문장</string>
+    <string name="all_situation">지역별 북한어</string>
     <string name="all_quiz">OX 퀴즈</string>
     <string name="all_north_korean">북한어</string>
     <string name="all_south_korean">남한어</string>
@@ -14,4 +14,6 @@
     <string name="menu_translate3">음성 인식</string>
     <string name="trans_output">번역 결과가 나타납니다.</string>
     <string name="trans_btn">번역</string>
+
+    <string name="dic_scrap">즐겨찾기</string>
 </resources>

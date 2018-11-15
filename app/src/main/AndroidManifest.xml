@@ -23,12 +23,24 @@
             android:name=".activity.QuizActivity"
             android:label="@string/all_quiz" />
         <activity
+            android:name=".activity.DictionaryActivity"
+            android:label="@string/all_dictionary"
+            android:theme="@style/DictionaryTheme"/>
+        <activity
             android:name=".activity.SituationActivity"
             android:label="@string/all_situation" />
         <activity
             android:name=".activity.TranslatorActivity"
             android:label="@string/all_translate"
             android:theme="@style/TranslateTheme" />
+        <activity
+            android:name=".activity.DictionaryDetailActivity"
+            android:label=""
+            android:theme="@style/DictionaryTheme"/>
+        <activity
+            android:name=".activity.DictionaryScrapActivity"
+            android:label="@string/dic_scrap"
+            android:theme="@style/DictionaryTheme"/>
 
     </application>
 

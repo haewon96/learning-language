@@ -14,4 +14,10 @@
         <item name="colorAccent">@color/colorTranslateAccent</item>
     </style>
 
+    <style name="DictionaryTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorDictionary</item>
+        <item name="colorPrimaryDark">@color/colorDictionaryDark</item>
+        <item name="colorAccent">@color/colorDictionaryAccent</item>
+    </style>
+
 </resources>

@@ -1,4 +1,4 @@
-package org.sungshin.lnk.learningnorthkorean.Adapter
+package org.sungshin.lnk.learningnorthkorean.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import org.sungshin.lnk.learningnorthkorean.R
-import org.sungshin.lnk.learningnorthkorean.Model.DictionaryListViewModel
+import org.sungshin.lnk.learningnorthkorean.model.DictionaryListViewModel
 
 class DictionaryListViewAdapter(val context: Context, val listModelArrayList: ArrayList<DictionaryListViewModel>) : BaseAdapter() {
 

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="6"/>
         <Button
+            android:id="@+id/btn_toggle_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="남한어"
@@ -38,7 +39,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginRight="0.3dp"
-            android:background="@color/colorDictionaryAccent"
+            android:background="@color/colorDictionaryBackground"
             android:padding="2dp"/>
         <TextView
             android:layout_weight="1"
@@ -47,7 +48,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginLeft="0.3dp"
-            android:background="@color/colorDictionaryAccent"
+            android:background="@color/colorDictionaryBackground"
             android:padding="2dp"/>
     </TableRow>
     </TableLayout>

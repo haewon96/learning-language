@@ -1,6 +1,7 @@
 package org.sungshin.lnk.learningnorthkorean.util
 
-import org.sungshin.lnk.learningnorthkorean.Model.DictionaryListViewModel
+import org.sungshin.lnk.learningnorthkorean.model.DictionaryListViewModel
+
 
 class DictionaryListViewHelper {
 

@@ -10,6 +10,7 @@
     <color name="colorDictionary">#34A853</color>
     <color name="colorQuiz">#656565</color>
     <color name="colorSituation">#4285F4</color>
-    <color name="colorDictionaryAccent">#BCBCBC</color>
-    <color name="colorDictionaryDark">#656565</color>
+    <color name="colorDictionaryBackground">#BCBCBC</color>
+    <color name="colorDictionaryDark">#0B7928</color>
+    <color name="colorDictionaryAccent">#565656</color>
 </resources>

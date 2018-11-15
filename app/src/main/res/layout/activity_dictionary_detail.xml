@@ -17,7 +17,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_marginRight="0.3dp"
-                android:background="@color/colorDictionaryAccent"
+                android:background="@color/colorDictionaryBackground"
                 android:padding="2dp"/>
             <TextView
                 android:layout_weight="1"
@@ -26,7 +26,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_marginLeft="0.3dp"
-                android:background="@color/colorDictionaryAccent"
+                android:background="@color/colorDictionaryBackground"
                 android:padding="2dp"/>
         </TableRow>
 
