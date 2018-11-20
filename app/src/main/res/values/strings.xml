@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">북한말 거님길</string>
-    
+
     <string name="all_movies">북한어 영상 모음</string>
     <string name="all_translate">번역기</string>
     <string name="all_dictionary">사전</string>
@@ -8,6 +8,9 @@
     <string name="all_quiz">OX 퀴즈</string>
     <string name="all_north_korean">북한어</string>
     <string name="all_south_korean">남한어</string>
+    <string name="all_network_err">네트워크 연결을 확인해주세요!</string>
+    <string name="before_translate">번역 전</string>
+    <string name="after_translate">번역 후</string>
 
     <string name="menu_translate1">텍스트</string>
     <string name="menu_translate2">문자 인식</string>
@@ -16,4 +19,38 @@
     <string name="trans_btn">번역</string>
 
     <string name="dic_scrap">즐겨찾기</string>
+    <string name="trans_recommend">추천문장</string>
+    <string name="trans_voice">음성인식</string>
+
+    <string-array name="state_north">
+        <item>손기척에 쪽잠에서 깨어보니 가시어머니가 나를 지르보다.</item>
+        <item>아바이가 기름밥을 만들고 어마이는 눈썹먹을 하고 나가기에 나는 어마이를 냄내했다.</item>
+        <item>알레지에 걸려 그니러워서 얼굴가리개를 했다. 그런데 옆에 물크림을 파는 아주매가 있어서 더 그니러웠다.</item>
+        <item>식의주란 사람이 살아가는데 가장 기본적으로 필요한 세 가지를 말한다.</item>
+        <item>건늠길을 건너다가 남새 파는 진단장을 한 아주매를 만났다.</item>
+        <item>집에서 가차운 곳에서 동무랑 돌가위보를 하다 밥가마가 타는 내가 났다. 앗! 밥가마 올려놓은 것을 깜빡 잊었다. 그 때 마침 몸까기를 하고 들어오는 엄마께 뭐라캐였다.</item>
+        <item>점심을 안 먹어서 그런지 초기가 있어서 고기떡을 5개나 먹었어.</item>
+        <item>배탈이 났을 때 그 싸락약을 먹어야 하는지 참 삭갈리네.</item>
+        <item>연극공연에서 호물때기처럼 생긴 사람이 노죽스러운 연기를 잘하더라.</item>
+        <item>오늘처럼 눈꼬치 날리는 날엔 얼큰한 남비탕이 생각난다.</item>
+        <item>오늘 방송야외에선 군중가요와 만담이 준비되어 있습니다.</item>
+        <item>세계 최고의 녀성고음인 그녀의 무대는 피타는 공연이었다.</item>
+        <item>겨울나이 한지가 엊그제 같은데 벌써 눈석임철이 되었구나.</item>
+    </string-array>
+
+    <string-array name="state_south">
+        <item>노크 소리에 낮잠에서 깨어보니 장모가 나를 노려본다.</item>
+        <item>아빠가 볶음밥을 만들고 엄마는 마스카라를 하고 나가기에 나는 엄마를 배웅했다.</item>
+        <item>알레르기에 걸려 간지러워서 마스크를 했다. 그런데 옆에 로션을 파는 아줌마가 있어서 더 간지러웠다.</item>
+        <item>의식주란 사람이 살아가는데 가장 기본적으로 필요한 세 가지를 말한다.</item>
+        <item>횡단보도를 건너다가 채소 파는 진한 화장을 한 아주머니를 만났다.</item>
+        <item>집에서 가까운 곳에서 친구랑 가위바위보를 하다가 밥솥이 타는 냄새가 났다. 앗! 밥솥 올려놓은 것을 깜빡 잊었다. 그 때 마침 다이어트를 하고 들어오는 엄마께 혼났다.</item>
+        <item>점심을 안 먹어서 그런지 시장기가 있어서 어묵을 5개나 먹었어.</item>
+        <item>배탈이 났을 때 그 과립형 약을 먹어야 하는지 참 헷갈리네.</item>
+        <item>연극공연에서 합죽이처럼 생긴 사람이 우스꽝스러운 연기를 잘하더라.</item>
+        <item>오늘처럼 눈송이 날리는 날엔 얼큰한 찌개가 생각난다.</item>
+        <item>오늘 공개방송에선 대중가요와 만담이 준비되어 있습니다.</item>
+        <item>세계 최고의 소프라노인 그녀의 무대는 열정적인 공연이었다.</item>
+        <item>월동준비 한지가 엊그제 같은데 벌써 해빙기가 되었구나.</item>
+    </string-array>
 </resources>

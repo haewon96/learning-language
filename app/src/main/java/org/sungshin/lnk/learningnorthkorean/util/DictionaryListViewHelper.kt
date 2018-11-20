@@ -23,9 +23,6 @@ class DictionaryListViewHelper {
             listViewModelArrayList.add(DictionaryListViewModel(13, "우물", "우물"))
             listViewModelArrayList.add(DictionaryListViewModel(14, "우산", "우산"))
 
-
-
-
             return listViewModelArrayList as ArrayList
         }
     }
