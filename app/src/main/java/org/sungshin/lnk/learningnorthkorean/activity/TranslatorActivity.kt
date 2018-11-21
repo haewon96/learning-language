@@ -1,20 +1,24 @@
 package org.sungshin.lnk.learningnorthkorean.activity
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.support.v7.app.AppCompatActivity
+import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_translate.*
+import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.toast
 import org.sungshin.lnk.learningnorthkorean.R
 import org.sungshin.lnk.learningnorthkorean.util.Translation
 import java.util.*
-import android.net.ConnectivityManager
-import org.jetbrains.anko.toast
 
 
 class TranslatorActivity : AppCompatActivity() {
@@ -32,16 +36,35 @@ class TranslatorActivity : AppCompatActivity() {
 
     private fun initView() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        ib_trans_erase.setOnClickListener { clearText() }
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+        ib_trans_paste.setOnClickListener {
+            if (clipboard.primaryClip != null) {
+                val textToPaste = clipboard.primaryClip.getItemAt(0).text
+                et_trans_input.setText(et_trans_input.text.toString() + textToPaste)
+            }
+        }
+
+        ib_trans_erase.setOnClickListener {
+            et_trans_input.text = null
+        }
+
+        ib_trans_copy.setOnClickListener {
+            val clip = ClipData.newPlainText(null, tv_trans_output.text)
+            clipboard.primaryClip = clip
+        }
 
         ib_trans_exchange.setOnClickListener { changeLanguage() }
 
+        ib_camera.setOnClickListener { startActivityForResult<RecognizeTextActivity>(startTakingPic) }
         ib_voice.setOnClickListener { startSST() }
 
         btn_trans_start.setOnClickListener {
             toggleProgress()
             refreshView()
         }
+
+        et_trans_input.movementMethod = ScrollingMovementMethod.getInstance() // 스크롤 설정
     }
 
     private fun refreshView() {
@@ -49,11 +72,6 @@ class TranslatorActivity : AppCompatActivity() {
 
         tv_trans_output.text = trans.translate()
         toggleProgress()
-    }
-
-    private fun clearText() {
-        et_trans_input.text = null
-        tv_trans_output.text = getString(R.string.trans_output)
     }
 
     private fun changeLanguage() {
@@ -119,6 +137,9 @@ class TranslatorActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == startSST && resultCode == Activity.RESULT_OK)
             et_trans_input.setText(data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0))
+        else if (requestCode == startTakingPic && resultCode == Activity.RESULT_OK) {
+
+        }
 
         super.onActivityResult(requestCode, resultCode, data)
     }

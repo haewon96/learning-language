@@ -1,11 +1,8 @@
 package org.sungshin.lnk.learningnorthkorean.activity
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.sungshin.lnk.learningnorthkorean.R
