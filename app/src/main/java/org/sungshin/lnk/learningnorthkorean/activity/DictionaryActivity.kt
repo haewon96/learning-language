@@ -22,7 +22,7 @@ class DictionaryActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val listView = findViewById<ListView>(R.id.lv_dictionary)
-        val toggleLanguage = findViewById<Button>(R.id.btn_toggle_language);
+        val toggleLanguage = findViewById<Button>(R.id.btn_toggle_language)
 
         var listViewAdapter = DictionaryListViewAdapter(this, DictionaryListViewHelper.Companion.getListViewModelList())
         listView.adapter = listViewAdapter
