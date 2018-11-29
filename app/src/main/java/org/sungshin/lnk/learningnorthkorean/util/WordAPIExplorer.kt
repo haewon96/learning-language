@@ -36,7 +36,7 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
         var flag_sngram = false
         var flag_sgram = false
         var flag_ngram = false
-        var temp_id:String? = ""
+        var temp_id:Int = 0
         var temp_title:String? = ""
         var temp_ntitle:String? = ""
         var temp_stitle:String? = ""
@@ -56,7 +56,7 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
             parser?.setInput(url.openStream(), "utf-8")
             var eventType = parser?.eventType
 
-            while (eventType != XmlPullParser.END_DOCUMENT || i < 30) {
+            while (eventType != XmlPullParser.END_DOCUMENT) {
                 when (eventType) {
                     XmlPullParser.START_TAG -> {
                         if (parser?.name.equals("id")) {
@@ -90,7 +90,7 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
 
                     XmlPullParser.TEXT -> {
                         if (flag_id) {
-                            temp_id = parser?.text
+                            temp_id = parser?.text!!.toInt()
                             flag_id = false
                         }
                         if (flag_dsemantic) {
@@ -131,7 +131,6 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
                         if (parser?.name.equals("item")) {
                             word = Word(temp_id, temp_title, temp_ntitle, temp_stitle, temp_semantic, temp_dsemantic, temp_sngram, temp_ngram, temp_sgram)
                             resultArray.add(word)
-                            temp_id = "-"
                             temp_title = "-"
                             temp_ntitle = "-"
                             temp_stitle = "-"

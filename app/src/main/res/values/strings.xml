@@ -22,6 +22,11 @@
     <string name="trans_recommend">추천문장</string>
     <string name="trans_voice">음성인식</string>
 
+    <string name="stage1">1단계</string>
+    <string name="stage2">2단계</string>
+    <string name="stage3">3단계</string>
+    <string name="stage4">4단계</string>
+
     <string-array name="state_north">
         <item>손기척에 쪽잠에서 깨어보니 가시어머니가 나를 지르보다.</item>
         <item>아바이가 기름밥을 만들고 어마이는 눈썹먹을 하고 나가기에 나는 어마이를 냄내했다.</item>
