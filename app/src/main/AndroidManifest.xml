@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.sungshin.lnk.learningnorthkorean">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -29,7 +30,7 @@
         <activity
             android:name=".activity.DictionaryActivity"
             android:label="@string/all_dictionary"
-            android:theme="@style/DictionaryTheme"/>
+            android:theme="@style/DictionaryTheme" />
         <activity
             android:name=".activity.SituationActivity"
             android:label="@string/all_situation" />
@@ -38,13 +39,16 @@
             android:label="@string/all_translate"
             android:theme="@style/TranslateTheme" />
         <activity
+            android:name=".activity.RecognizeTextActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
             android:name=".activity.DictionaryDetailActivity"
             android:label=""
-            android:theme="@style/DictionaryTheme"/>
+            android:theme="@style/DictionaryTheme" />
         <activity
             android:name=".activity.DictionaryScrapActivity"
             android:label="@string/dic_scrap"
-            android:theme="@style/DictionaryTheme"/>
+            android:theme="@style/DictionaryTheme" />
 
     </application>
 

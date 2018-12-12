@@ -12,6 +12,8 @@
     <string name="before_translate">번역 전</string>
     <string name="after_translate">번역 후</string>
 
+    <string name="recognize_text">사진으로 문자인식</string>
+
     <string name="menu_translate1">텍스트</string>
     <string name="menu_translate2">문자 인식</string>
     <string name="menu_translate3">음성 인식</string>

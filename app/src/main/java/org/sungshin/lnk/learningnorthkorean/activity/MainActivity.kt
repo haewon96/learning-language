@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
+import org.sungshin.lnk.learningnorthkorean.MapsActivity
 import org.sungshin.lnk.learningnorthkorean.R
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_main_translate ->
                 startActivity<TranslatorActivity>()
             R.id.btn_main_situation ->
-                startActivity<SituationActivity>()
+                startActivity<MapsActivity>()
             R.id.btn_main_quiz ->
                 startActivity<QuizActivity>()
             R.id.btn_main_dictionary ->

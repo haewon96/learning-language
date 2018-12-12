@@ -18,6 +18,7 @@ import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.sungshin.lnk.learningnorthkorean.R
 import org.sungshin.lnk.learningnorthkorean.util.Translation
+import org.sungshin.lnk.learningnorthkorean.util.WordAPIExplorer
 import java.util.*
 
 
@@ -69,6 +70,7 @@ class TranslatorActivity : AppCompatActivity() {
 
     private fun refreshView() {
         val trans = Translation(et_trans_input.text.toString())
+        val explorer = WordAPIExplorer
 
         tv_trans_output.text = trans.translate()
         toggleProgress()
