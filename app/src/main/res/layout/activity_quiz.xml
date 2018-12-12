@@ -9,6 +9,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="15dp">
         <Button
+            android:id="@+id/btn_level1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage1"
@@ -16,6 +17,7 @@
             android:layout_gravity="center"/>
 
         <Button
+            android:id="@+id/btn_level2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage2"
@@ -23,6 +25,7 @@
             android:layout_gravity="center"/>
 
         <Button
+            android:id="@+id/btn_level3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage3"
@@ -30,6 +33,7 @@
             android:layout_gravity="center"/>
 
         <Button
+            android:id="@+id/btn_level4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage4"
