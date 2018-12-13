@@ -1,13 +1,16 @@
 package org.sungshin.lnk.learningnorthkorean.activity
 
+import android.Manifest
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.method.ScrollingMovementMethod
 import android.view.Menu
@@ -28,6 +31,7 @@ import android.widget.TextView
 
 
 class TranslatorActivity : AppCompatActivity() {
+    private val resultPermission = 100
     private val NKToSK = 0
     private val SKToNK = 1
     private val startSST = 2
@@ -38,6 +42,8 @@ class TranslatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_translate)
         initView()
+
+        askForPermission()
     }
 
     private fun initView() {
@@ -155,5 +161,26 @@ class TranslatorActivity : AppCompatActivity() {
         }
 
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    //권한 요청
+    private fun askForPermission() {
+        val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA)
+        ActivityCompat.requestPermissions(this, permissions, resultPermission)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == resultPermission) {
+            for (i in permissions.indices) {
+                val permission = permissions[i]
+                val grantResult = grantResults[i]
+
+                if (permission == Manifest.permission.CAMERA && grantResult != PackageManager.PERMISSION_GRANTED) {
+                    toast("접근 권한 허가가 필요합니다.")
+                    finish()
+                }
+            }
+        }
     }
 }
