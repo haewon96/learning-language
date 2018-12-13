@@ -198,6 +198,7 @@
                         android:layout_height="match_parent"
                         android:layout_below="@id/tv_trans_korean2"
                         android:paddingHorizontal="15dp"
+                        android:lineSpacingExtra="2dp"
                         android:paddingBottom="10dp"
                         android:scrollbars="vertical"
                         android:textColor="@android:color/black"

@@ -20,6 +20,11 @@ import org.sungshin.lnk.learningnorthkorean.R
 import org.sungshin.lnk.learningnorthkorean.util.Translation
 import org.sungshin.lnk.learningnorthkorean.util.WordAPIExplorer
 import java.util.*
+import android.text.Spannable
+import android.text.Spanned
+import android.text.style.BackgroundColorSpan
+import android.util.Log.d
+import android.widget.TextView
 
 
 class TranslatorActivity : AppCompatActivity() {
@@ -71,8 +76,14 @@ class TranslatorActivity : AppCompatActivity() {
     private fun refreshView() {
         val trans = Translation(et_trans_input.text.toString())
         val explorer = WordAPIExplorer
+        val indexArray = trans.translate()
+        tv_trans_output.setText(et_trans_input.text, TextView.BufferType.SPANNABLE)
+        val span: Spannable = tv_trans_output.text as Spannable
 
-        tv_trans_output.text = trans.translate()
+        for (i in indexArray) {
+            d("index", i.start.toString() + " " + i.end)
+            span.setSpan(BackgroundColorSpan(resources.getColor(R.color.colorHighlight)), i.start, i.end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
         toggleProgress()
     }
 
@@ -102,7 +113,7 @@ class TranslatorActivity : AppCompatActivity() {
         val index = Random().nextInt(randomArray.size)
 
         et_trans_input.setText(randomArray[index])
-        tv_trans_output.text = resultArray[index]
+//        tv_trans_output.text = resultArray[index]
     }
 
     private fun startSST() {

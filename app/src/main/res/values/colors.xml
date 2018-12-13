@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorMovies">#EA4335</color>
     <color name="colorTranslate">#FBBC05</color>
+    <color name="colorHighlight">#fff387</color>
     <color name="colorTranslateDark">#d68e00</color>
     <color name="colorTranslateAccent">#5b3d01</color>
     <color name="colorDictionary">#34A853</color>
