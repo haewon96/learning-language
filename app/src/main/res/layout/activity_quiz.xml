@@ -2,43 +2,80 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/quiz_wood" />
+<!--    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="북한어 O/X 퀴즈"
+        android:textStyle="bold"
+        android:textSize="45dp"
+        android:textAlignment="center"
+        android:paddingTop="100dp"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:layout_margin="15dp">
+        android:layout_margin="15dp"
+        android:paddingTop="80dp">
         <Button
             android:id="@+id/btn_level1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage1"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
             android:padding="5dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/colorQuizAccent"
+            />
 
         <Button
             android:id="@+id/btn_level2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage2"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
             android:padding="5dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/colorQuizAccent"/>
 
         <Button
             android:id="@+id/btn_level3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage3"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
             android:padding="5dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/colorQuizAccent"/>
 
         <Button
             android:id="@+id/btn_level4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stage4"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
             android:padding="5dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/colorQuizAccent"/>
     </LinearLayout>
 
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_quiz_frame"
+            android:layout_width="350dp"
+            android:layout_height="340dp"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/frame" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_quiz_frame"
+            android:layout_alignLeft="@id/img_quiz_frame"
+            android:layout_alignRight="@id/img_quiz_frame"
+            android:layout_alignTop="@id/img_quiz_frame"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@color/colorQuizAccent"
+            android:padding="15dp"
+            android:text="O"
+            android:textColor="#FFFFFF"
+            android:textSize="35dp" />
+
+        <Button
+            android:id="@+id/btn_wrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@color/colorQuizAccent"
+            android:padding="15dp"
+            android:text="X"
+            android:textColor="#FFFFFF"
+            android:textSize="35dp" />
+    </LinearLayout>
+</LinearLayout>
