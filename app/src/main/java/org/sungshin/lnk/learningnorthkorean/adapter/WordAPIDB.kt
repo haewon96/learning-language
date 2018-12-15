@@ -13,13 +13,6 @@ object WordAPIDB : BaseColumns {
     val NGRAM = "ngram"
     val SGRAM = "sgram"
     val _TABLENAME = "wordAPITable"
-    val _CREATE = ("create Table " + "(" + ID + " int primary key, "
-            + TITLE + " string, "
-            + NTITLE + " string, "
-            + STITLE + " string, "
-            + SEMANTIC + " string, "
-            + DSEMANTIC + " string, "
-            + SNGRAM + " string, "
-            + NGRAM + " string, "
-            + SGRAM + "string);")
+    val _CREATE = "create table " + _TABLENAME + "(" + ID + " int primary key, " + TITLE + " string, " + NTITLE + " string, " + STITLE + " string, " + SEMANTIC + " string, " +
+            DSEMANTIC + " string, " + SNGRAM + " string, " + NGRAM + " string, " + SGRAM + " string);"
 }

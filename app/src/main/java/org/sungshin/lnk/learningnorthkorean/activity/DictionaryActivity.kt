@@ -12,6 +12,7 @@ import org.jetbrains.anko.startActivity
 import org.sungshin.lnk.learningnorthkorean.adapter.DictionaryListViewAdapter
 import org.sungshin.lnk.learningnorthkorean.R
 import org.sungshin.lnk.learningnorthkorean.util.DictionaryListViewHelper
+import org.sungshin.lnk.learningnorthkorean.util.WordAPIExplorer
 
 class DictionaryActivity : AppCompatActivity() {
 
@@ -23,6 +24,9 @@ class DictionaryActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.lv_dictionary)
         val toggleLanguage = findViewById<Button>(R.id.btn_toggle_language)
+
+        val apiExplorer:WordAPIExplorer = WordAPIExplorer(applicationContext)
+        apiExplorer.execute()
 
         var listViewAdapter = DictionaryListViewAdapter(this, DictionaryListViewHelper.Companion.getListViewModelList())
         listView.adapter = listViewAdapter

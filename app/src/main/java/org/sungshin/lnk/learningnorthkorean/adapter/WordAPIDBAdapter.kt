@@ -8,15 +8,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 import org.sungshin.lnk.learningnorthkorean.`object`.Word
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.DSEMANTIC
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.ID
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.NGRAM
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.NTITLE
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.SEMANTIC
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.SGRAM
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.SNGRAM
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.STITLE
-import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB.TITLE
 import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDB._TABLENAME
 
 import java.util.ArrayList
@@ -43,8 +34,8 @@ class WordAPIDBAdapter (private val mContext: Context) {
     (context: Context, name: String, factory: SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
         // 최초 DB를 만들 때 한 번만 호출된다.
-        override fun onCreate(db: SQLiteDatabase) {
-            db.execSQL(WordAPIDB._CREATE) // 테이블 생성
+        override fun onCreate(db: SQLiteDatabase?) {
+            db?.execSQL(WordAPIDB._CREATE) // 테이블 생성
         }
 
         override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -66,7 +57,7 @@ class WordAPIDBAdapter (private val mContext: Context) {
         rDB?.close()
     } // DB 닫기
 
-    fun insertColumn(id: Int, title: String, ntitle: String, stitle: String, semantic: String, dsemantic: String, sngram: String, ngram: String, sgram: String): Long {
+    fun insertColumn(id: Int, title: String?, ntitle: String?, stitle: String?, semantic: String?, dsemantic: String?, sngram: String?, ngram: String?, sgram: String?): Long {
         val values = ContentValues()
         values.put("id", id)
         values.put("title", title)
@@ -81,8 +72,24 @@ class WordAPIDBAdapter (private val mContext: Context) {
         return mDB!!.insert(_TABLENAME, null, values)
     } // DB에 내용 추가
 
-    fun displayColumn(): Cursor {
+    fun deleteTable() {
+        mDB!!.execSQL("delete from $_TABLENAME")
+    }
 
+    fun getTitle(): Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val titles = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            titles[i] = c.getString(c.getColumnIndex("title"))
+            i++
+        }
+
+        return titles
+    }
+
+    fun displayColumn(): Cursor {
         return mDB!!.rawQuery("SELECT * FROM $_TABLENAME", null)
     } // 커서를 사용해 테이블 내용을 가져옴
 

@@ -1,15 +1,20 @@
+
 package org.sungshin.lnk.learningnorthkorean.util
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
 import org.sungshin.lnk.learningnorthkorean.`object`.Word
+import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDBAdapter
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.net.URL
 import java.net.URLEncoder
 
-object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
+class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word>>() {
+
+
     var factory: XmlPullParserFactory? = null
     var parser: XmlPullParser? = null
     val urlBuilder = StringBuilder("http://openapi.korean.go.kr/openapi/service/SouthNorthWordsService/getSouthNorthWordsList")
@@ -18,8 +23,18 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
     var resultArray: ArrayList<Word> = arrayListOf()
     private lateinit var url: URL
 
+    var db = WordAPIDBAdapter(context).open()
+    //var db = WordAPIDBAdapter(context).writableDatabase
+
+  /*  val mdb = helper.mDB
+    val rdb = helper.rDB*/
+
+
+    //Log.d(TAG, "db 삽입 결과 : " + rdb.toString())
+
     init {
-        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=50") // Service Key
+        //urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=50") // Service Key
+        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key)
     }
 
     fun setSearchUrl(word: String) {
@@ -27,6 +42,7 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
     }
 
     override fun doInBackground(vararg p0: String?): ArrayList<Word> {
+        db.deleteTable()
         var flag_id = false
         var flag_title = false
         var flag_ntitle = false
@@ -131,6 +147,9 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
                         if (parser?.name.equals("item")) {
                             word = Word(temp_id, temp_title, temp_ntitle, temp_stitle, temp_semantic, temp_dsemantic, temp_sngram, temp_ngram, temp_sgram)
                             resultArray.add(word)
+                            db.insertColumn(temp_id, temp_title, temp_ntitle, temp_stitle, temp_semantic, temp_dsemantic, temp_sngram, temp_ngram, temp_sgram)
+                            //db.execSQL("insert into learning_north_korean_word values(\'$temp_id\', \'$temp_title\', \'$temp_ntitle\', \'$temp_stitle\', \'$temp_semantic\', \'$temp_dsemantic\', \'$temp_sngram\', \'$temp_ngram\', \'$temp_sgram\')")
+                            //helper.mDB.insertColumn(temp_id, temp_title, temp_ntitle, temp_stitle, temp_semantic, temp_dsemantic, temp_sngram, temp_ngram, temp_sgram)
                             temp_title = "-"
                             temp_ntitle = "-"
                             temp_stitle = "-"
@@ -151,6 +170,14 @@ object WordAPIExplorer : AsyncTask<String, Void, ArrayList<Word>>() {
             e.printStackTrace()
             result = "err"
         }
+
+        val db_result = db.displayColumn()
+        val db_result_title = db.getTitle()
+
+        Log.d(TAG, "db 삽입 결과 : " + db.toString())
+        Log.d(TAG, "db select 결과 : " + db_result.toString())
+        Log.d(TAG, "db 삽입 결과 확인 : " + db_result_title[0].toString())
+        db.close()
 
         return resultArray
     }
