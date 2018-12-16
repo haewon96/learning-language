@@ -2,6 +2,7 @@ package org.sungshin.lnk.learningnorthkorean.util
 
 import android.content.res.AssetManager
 import android.graphics.Bitmap
+import android.util.Log
 import com.googlecode.tesseract.android.TessBaseAPI
 import java.io.File
 import java.io.FileNotFoundException
@@ -50,7 +51,7 @@ class TessOCR(val filesDir: File, val assetManager: AssetManager, val bitmap: Bi
             do {
                 read = instream.read(buffer)
                 outstream.write(buffer, 0, read)
-            } while (read != 0)
+            } while (read != -1)
 
             outstream.flush()
             outstream.close()

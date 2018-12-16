@@ -27,14 +27,15 @@
             android:label="@string/all_movies" />
         <activity
             android:name=".activity.QuizActivity"
-            android:label="@string/all_quiz" />
+            android:label="@string/all_quiz"
+            android:theme="@style/QuizTheme" />
         <activity
             android:name=".activity.DictionaryActivity"
             android:label="@string/all_dictionary"
             android:theme="@style/DictionaryTheme" />
-        <activity
-            android:name=".activity.SituationActivity"
-            android:label="@string/all_situation" />
+        <!--        <activity
+                    android:name=".activity.MapsActivity"
+                    android:label="@string/all_situation" />-->
         <activity
             android:name=".activity.TranslatorActivity"
             android:label="@string/all_translate"
@@ -50,7 +51,22 @@
             android:name=".activity.DictionaryScrapActivity"
             android:label="@string/dic_scrap"
             android:theme="@style/DictionaryTheme" />
-
+        <activity
+            android:name=".activity.QuizLevel1Activity"
+            android:label=""
+            android:theme="@style/QuizTheme" />
+        <activity
+            android:name=".activity.QuizLevel2Activity"
+            android:label=""
+            android:theme="@style/QuizTheme" />
+        <activity
+            android:name=".activity.QuizLevel3Activity"
+            android:label=""
+            android:theme="@style/QuizTheme" />
+        <activity
+            android:name=".activity.QuizLevel4Activity"
+            android:label=""
+            android:theme="@style/QuizTheme" />
     </application>
 
 </manifest>

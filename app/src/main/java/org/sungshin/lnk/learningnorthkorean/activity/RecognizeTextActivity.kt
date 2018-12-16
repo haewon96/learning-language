@@ -1,27 +1,28 @@
 package org.sungshin.lnk.learningnorthkorean.activity
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.PixelFormat
+import android.graphics.*
 import android.hardware.Camera
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
-import android.util.Log.d
 import android.view.SurfaceHolder
+import android.view.SurfaceView
 import com.googlecode.tesseract.android.TessBaseAPI
 import kotlinx.android.synthetic.main.activity_recognize_text.*
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.yesButton
 import org.sungshin.lnk.learningnorthkorean.R
+import org.sungshin.lnk.learningnorthkorean.util.TessOCR
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
-import android.os.Environment.getExternalStorageDirectory
-import java.util.*
-import android.content.Intent
-import android.net.Uri
-import org.sungshin.lnk.learningnorthkorean.util.TessOCR
+import java.io.OutputStream
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+
+
 
 
 class RecognizeTextActivity : AppCompatActivity(), SurfaceHolder.Callback {
@@ -38,47 +39,27 @@ class RecognizeTextActivity : AppCompatActivity(), SurfaceHolder.Callback {
         initView()
     }
 
-    private fun takeScreenshot() {
-        val now = Date()
-        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now)
-
-        try {
-            val mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".jpg"
-
-            val v1 = window.decorView.rootView
-            v1.isDrawingCacheEnabled = true
-            val bitmap = Bitmap.createBitmap(v1.drawingCache)
-            v1.isDrawingCacheEnabled = false
-
-            val imageFile = File(mPath)
-
-            val outputStream = FileOutputStream(imageFile)
-            val quality = 100
-            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
-            outputStream.flush()
-            outputStream.close()
-
-            openScreenshot(imageFile)
-        } catch (e: Throwable) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun openScreenshot(imageFile: File) {
-        val intent = Intent()
-        intent.action = Intent.ACTION_VIEW
-        val uri = Uri.fromFile(imageFile)
-        intent.setDataAndType(uri, "image/*")
-        startActivity(intent)
-    }
-
-    fun viewToBitmap(): Bitmap {
+    fun viewToBitmap(view: SurfaceView): Bitmap {
         val bitmap = Bitmap.createBitmap(surface.width, surface.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
-        surface.setZOrderOnTop(true)
-        surface.draw(canvas)
-        surface.setZOrderOnTop(false)
 
+        view.setZOrderOnTop(true)
+        view.draw(canvas)
+        view.setZOrderOnTop(false)
+
+        view.draw(canvas)
+
+        val path = Environment.getExternalStorageDirectory().toString()
+        var fOut: OutputStream? = null
+        val counter = 0
+        val file = File(path, "Test$counter.jpg") // the File to save , append increasing numeric counter to prevent files from getting overwritten.
+        fOut = FileOutputStream(file)
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut) // saving the Bitmap to a file compressed as a JPEG with 85% compression rate
+        fOut!!.flush() // Not really required
+        fOut!!.close() // do not forget to close the stream
+
+        MediaStore.Images.Media.insertImage(contentResolver, file.absolutePath, file.name, file.name)
         return bitmap
     }
 
@@ -93,10 +74,20 @@ class RecognizeTextActivity : AppCompatActivity(), SurfaceHolder.Callback {
 
         btn_capture.setOnClickListener {
             camera.stopPreview()
-            val bitmap = Bitmap.createBitmap(surface.width, surface.height, Bitmap.Config.ARGB_8888)
-            val tessOCR = TessOCR(filesDir, assets, bitmap)
+            val tessOCR = TessOCR(filesDir, assets, viewToBitmap(surface))
             tessOCR.initTess()
             val result = tessOCR.processImage()
+
+            alert {
+                title = "인식 결과"
+                message = if (result.isEmpty()) "인식된 결과가 없습니다. 다시 시도하시겠습니까?" else result
+                yesButton {
+                    message = "확인"
+                }
+                noButton() {
+                    message = "취소"
+                }
+            }.show()
         }
     }
 

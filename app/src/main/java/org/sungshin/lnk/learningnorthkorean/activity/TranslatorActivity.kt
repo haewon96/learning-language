@@ -7,8 +7,11 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.provider.MediaStore
 import android.speech.RecognizerIntent
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
@@ -17,8 +20,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_translate.*
-import org.jetbrains.anko.startActivityForResult
-import org.jetbrains.anko.toast
 import org.sungshin.lnk.learningnorthkorean.R
 import org.sungshin.lnk.learningnorthkorean.util.Translation
 import org.sungshin.lnk.learningnorthkorean.util.WordAPIExplorer
@@ -28,6 +29,9 @@ import android.text.Spanned
 import android.text.style.BackgroundColorSpan
 import android.util.Log.d
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_recognize_text.*
+import org.jetbrains.anko.*
+import org.sungshin.lnk.learningnorthkorean.util.TessOCR
 
 
 class TranslatorActivity : AppCompatActivity() {
@@ -68,7 +72,11 @@ class TranslatorActivity : AppCompatActivity() {
 
         ib_trans_exchange.setOnClickListener { changeLanguage() }
 
-        ib_camera.setOnClickListener { startActivityForResult<RecognizeTextActivity>(startTakingPic) }
+        ib_camera.setOnClickListener {
+            //            startActivityForResult<RecognizeTextActivity>(startTakingPic)
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, startTakingPic)
+        }
         ib_voice.setOnClickListener { startSST() }
 
         btn_trans_start.setOnClickListener {
@@ -81,7 +89,7 @@ class TranslatorActivity : AppCompatActivity() {
 
     private fun refreshView() {
         val trans = Translation(et_trans_input.text.toString())
-        val explorer = WordAPIExplorer
+//        val explorer = WordAPIExplorer
         val indexArray = trans.translate()
         tv_trans_output.setText(et_trans_input.text, TextView.BufferType.SPANNABLE)
         val span: Spannable = tv_trans_output.text as Spannable
@@ -157,7 +165,24 @@ class TranslatorActivity : AppCompatActivity() {
         if (requestCode == startSST && resultCode == Activity.RESULT_OK)
             et_trans_input.setText(data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0))
         else if (requestCode == startTakingPic && resultCode == Activity.RESULT_OK) {
+            val extras: Bundle = data!!.extras
+            val bmp = extras.get("data") as Bitmap
 
+            val tessOCR = TessOCR(filesDir, assets, bmp)
+            tessOCR.initTess()
+            val result = tessOCR.processImage()
+
+            alert {
+                title = "인식 결과"
+                message = if (result.isEmpty()) "인식된 결과가 없습니다. 다시 시도하시겠습니까?" else result
+                yesButton {
+                    message = "확인"
+                    et_trans_input.setText(result)
+                }
+                noButton() {
+                    message = "취소"
+                }
+            }.show()
         }
 
         super.onActivityResult(requestCode, resultCode, data)
