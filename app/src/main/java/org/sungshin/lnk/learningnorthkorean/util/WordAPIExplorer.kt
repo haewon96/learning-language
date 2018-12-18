@@ -1,4 +1,3 @@
-
 package org.sungshin.lnk.learningnorthkorean.util
 
 import android.content.ContentValues.TAG
@@ -13,28 +12,26 @@ import java.net.URL
 import java.net.URLEncoder
 
 class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word>>() {
-
-
     var factory: XmlPullParserFactory? = null
     var parser: XmlPullParser? = null
     val urlBuilder = StringBuilder("http://openapi.korean.go.kr/openapi/service/SouthNorthWordsService/getSouthNorthWordsList")
     val key = "K2s1iriwI3Kh8htNQmvI8UjqBMSBHXZPufkIl0QBC1yVxxC7DrN8sNmFynz71dk2u9C7%2BSWSU0Oq3cix3Y61IA%3D%3D"
-    var result:String = ""
+    var result: String = ""
     var resultArray: ArrayList<Word> = arrayListOf()
     private lateinit var url: URL
 
     var db = WordAPIDBAdapter(context).open()
     //var db = WordAPIDBAdapter(context).writableDatabase
 
-  /*  val mdb = helper.mDB
-    val rdb = helper.rDB*/
+    /*  val mdb = helper.mDB
+      val rdb = helper.rDB*/
 
 
     //Log.d(TAG, "db 삽입 결과 : " + rdb.toString())
 
     init {
-        //urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=50") // Service Key
-        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key)
+        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=30") // Service Key
+        //urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key)
     }
 
     fun setSearchUrl(word: String) {
@@ -52,17 +49,17 @@ class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word
         var flag_sngram = false
         var flag_sgram = false
         var flag_ngram = false
-        var temp_id:Int = 0
-        var temp_title:String? = ""
-        var temp_ntitle:String? = ""
-        var temp_stitle:String? = ""
-        var temp_semantic:String? = ""
-        var temp_dsemantic:String? = ""
-        var temp_sngram:String? = ""
-        var temp_ngram:String? = ""
-        var temp_sgram:String? = ""
-        var word:Word
-        var i:Int = 0
+        var temp_id: Int = 0
+        var temp_title: String? = ""
+        var temp_ntitle: String? = ""
+        var temp_stitle: String? = ""
+        var temp_semantic: String? = ""
+        var temp_dsemantic: String? = ""
+        var temp_sngram: String? = ""
+        var temp_ngram: String? = ""
+        var temp_sgram: String? = ""
+        var word: Word
+        var i: Int = 0
 
         try {
             url = URL(urlBuilder.toString())
@@ -84,7 +81,7 @@ class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word
                         if (parser?.name.equals("ngram")) {
                             flag_ngram = true
                         }
-                        if(parser?.name.equals("ntitle")) {
+                        if (parser?.name.equals("ntitle")) {
                             flag_ntitle = true
                         }
                         if (parser?.name.equals("semantic")) {
@@ -174,9 +171,8 @@ class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word
         val db_result = db.displayColumn()
         val db_result_title = db.getTitle()
 
-        Log.d(TAG, "db 삽입 결과 : " + db.toString())
-        Log.d(TAG, "db select 결과 : " + db_result.toString())
-        Log.d(TAG, "db 삽입 결과 확인 : " + db_result_title[0].toString())
+        //Log.d("TAG", "db야 나와라 " +  db_result_title[30].toString())
+
         db.close()
 
         return resultArray

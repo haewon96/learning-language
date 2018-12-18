@@ -28,7 +28,10 @@ class DictionaryActivity : AppCompatActivity() {
         val apiExplorer:WordAPIExplorer = WordAPIExplorer(applicationContext)
         apiExplorer.execute()
 
-        var listViewAdapter = DictionaryListViewAdapter(this, DictionaryListViewHelper.Companion.getListViewModelList())
+        val wordList = DictionaryListViewHelper(applicationContext)
+        wordList.initWordList()
+
+        var listViewAdapter = DictionaryListViewAdapter(this, wordList.wordDBList)
         listView.adapter = listViewAdapter
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->  }
 
@@ -48,21 +51,19 @@ class DictionaryActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
-            R.id.home -> {
-                //뒤로가기 버튼 눌렀을 때
-                // 작동하지 않음. 추후 수정 필요.
-                finish()
-
-                return super.onOptionsItemSelected(item)
-            }
-            R.id.action_scrap -> {
-                //스크랩 버튼 눌렀을 때
-                startActivity<DictionaryScrapActivity>()
-
-                return super.onOptionsItemSelected(item)
-            }
-            else -> return super.onOptionsItemSelected(item)
+        when (item?.itemId) {
+            android.R.id.home -> finish()
+            //R.id.menu_translate1 -> setRandomState()
         }
+        when (item?.itemId) {
+        R.id.action_scrap -> {
+            //스크랩 버튼 눌렀을 때
+            startActivity<DictionaryScrapActivity>()
+
+            return super.onOptionsItemSelected(item)
+        }
+        else -> return super.onOptionsItemSelected(item)
+    }
+        return true
     }
 }

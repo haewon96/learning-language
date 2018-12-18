@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import org.sungshin.lnk.learningnorthkorean.R
+import org.sungshin.lnk.learningnorthkorean.`object`.Word
 import org.sungshin.lnk.learningnorthkorean.model.DictionaryListViewModel
+import org.sungshin.lnk.learningnorthkorean.util.DictionaryListViewHelper
 
-class DictionaryListViewAdapter(val context: Context, val listModelArrayList: ArrayList<DictionaryListViewModel>) : BaseAdapter() {
+class DictionaryListViewAdapter(val context: Context, val wordList: ArrayList<Word>) : BaseAdapter() {
+
+    //val wordList:ArrayList<DictionaryListViewModel> = InitListData().wordList
+//    val listModelArrayList: ArrayList<DictionaryListViewModel> = DictionaryListViewHelper().wordList
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         val view: View?
@@ -25,13 +30,13 @@ class DictionaryListViewAdapter(val context: Context, val listModelArrayList: Ar
             vh = view.tag as ViewHolder
         }
 
-        vh.southLanguage.text = listModelArrayList[position].southLanguage
-        vh.northLanguage.text = listModelArrayList[position].northLanguage
+        vh.southLanguage.text = wordList[position].stitle
+        vh.northLanguage.text = wordList[position].ntitle
         return view
     }
 
     override fun getItem(position: Int): Any {
-        return listModelArrayList[position]
+        return wordList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -39,7 +44,7 @@ class DictionaryListViewAdapter(val context: Context, val listModelArrayList: Ar
     }
 
     override fun getCount(): Int {
-        return listModelArrayList.size
+        return wordList.size
     }
 
     private class ViewHolder(view: View?) {

@@ -76,6 +76,19 @@ class WordAPIDBAdapter (private val mContext: Context) {
         mDB!!.execSQL("delete from $_TABLENAME")
     }
 
+    fun getID():Array<Int?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val ids = arrayOfNulls<Int>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            ids[i] = c.getInt(c.getColumnIndex("id"))
+            i++
+        }
+
+        return ids
+    }
+
     fun getTitle(): Array<String?> {
         val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
         val titles = arrayOfNulls<String>(c.count)
@@ -87,6 +100,97 @@ class WordAPIDBAdapter (private val mContext: Context) {
         }
 
         return titles
+    }
+
+    fun getNTitle():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val ntitles = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            ntitles[i] = c.getString(c.getColumnIndex("ntitle"))
+            i++
+        }
+
+        return ntitles
+    }
+
+    fun getSTitle():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val stitles = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            stitles[i] = c.getString(c.getColumnIndex("stitle"))
+            i++
+        }
+
+        return stitles
+    }
+
+    fun getSemantic():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val semantics = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            semantics[i] = c.getString(c.getColumnIndex("semantic"))
+            i++
+        }
+
+        return semantics
+    }
+
+    fun getDSemantic():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val dsemantics = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            dsemantics[i] = c.getString(c.getColumnIndex("dsemantic"))
+            i++
+        }
+
+        return dsemantics
+    }
+
+    fun getSNGram():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val sngrams = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            sngrams[i] = c.getString(c.getColumnIndex("sngram"))
+            i++
+        }
+
+        return sngrams
+    }
+
+    fun getNGram():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val ngrams = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            ngrams[i] = c.getString(c.getColumnIndex("ngram"))
+            i++
+        }
+
+        return ngrams
+    }
+
+    fun getSGram():Array<String?> {
+        val c = mDB!!.rawQuery("Select * from " + _TABLENAME + " ORDER BY id ", null)
+        val sgrams = arrayOfNulls<String>(c.count)
+        var i = 0
+
+        while (c.moveToNext()) {
+            sgrams[i] = c.getString(c.getColumnIndex("sgram"))
+            i++
+        }
+
+        return sgrams
     }
 
     fun displayColumn(): Cursor {
