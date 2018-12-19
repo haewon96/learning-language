@@ -33,12 +33,14 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/tv_south_korean"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="20dp"
                 android:padding="2dp"/>
 
             <TextView
+                android:id="@+id/tv_north_korean"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="20dp"
@@ -52,7 +54,9 @@
         android:layout_margin="4dp">
 
         <TableRow
-            android:paddingBottom="5dp">
+            android:paddingBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,13 +67,17 @@
                 />
 
             <TextView
+                android:id="@+id/tv_semantic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp" />
+                android:textSize="17dp"
+                />
         </TableRow>
 
         <TableRow
-            android:paddingBottom="5dp">
+            android:paddingBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -78,13 +86,16 @@
                 android:textSize="17dp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_dsemantic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp" />
         </TableRow>
 
         <TableRow
-            android:paddingBottom="5dp">
+            android:paddingBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,13 +104,16 @@
                 android:textSize="17dp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_sgram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp" />
         </TableRow>
 
         <TableRow
-            android:paddingBottom="5dp">
+            android:paddingBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,6 +122,7 @@
                 android:textSize="17dp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_ngram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp" />

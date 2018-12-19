@@ -60,4 +60,13 @@
         <item>세계 최고의 소프라노인 그녀의 무대는 열정적인 공연이었다.</item>
         <item>월동준비 한지가 엊그제 같은데 벌써 해빙기가 되었구나.</item>
     </string-array>
+
+    <string-array name="state_search">
+        <item>잠간</item>
+        <item>지지성원</item>
+        <item>게바르다</item>
+        <item>각다듬다</item>
+        <item>늘늘하다</item>
+        <item>마지막빛</item>
+    </string-array>
 </resources>

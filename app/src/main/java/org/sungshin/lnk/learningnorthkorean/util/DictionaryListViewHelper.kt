@@ -3,6 +3,8 @@ package org.sungshin.lnk.learningnorthkorean.util
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
+import android.widget.Filter
+import android.widget.Filterable
 import org.sungshin.lnk.learningnorthkorean.`object`.App
 import org.sungshin.lnk.learningnorthkorean.`object`.Word
 import org.sungshin.lnk.learningnorthkorean.activity.DictionaryActivity
@@ -11,6 +13,10 @@ import org.sungshin.lnk.learningnorthkorean.model.DictionaryListViewModel
 
 
 class DictionaryListViewHelper(val context: Context) {
+    var wordDBList = ArrayList<Word>()
+    var wordFilterdList = ArrayList<Word>()
+    lateinit var listFilter: Filter
+
     var db = WordAPIDBAdapter(context).open()
     val db_id = db.getID()
     val db_title = db.getTitle()
@@ -23,7 +29,6 @@ class DictionaryListViewHelper(val context: Context) {
     val db_sgram = db.getSGram()
 
     var db_iterator = db_id.size.toInt()
-    val wordDBList = ArrayList<Word>()
 
     fun initWordList() {
         for (i in 0 until db_iterator) {
