@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.sungshin.lnk.learningnorthkorean.MapsActivity
 import org.sungshin.lnk.learningnorthkorean.R
+import org.sungshin.lnk.learningnorthkorean.adapter.WordAPIDBAdapter
+import org.sungshin.lnk.learningnorthkorean.util.WordAPIExplorer
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_main_situation.setOnClickListener(this)
         btn_main_quiz.setOnClickListener(this)
         btn_main_dictionary.setOnClickListener(this)
+
+        var db = WordAPIDBAdapter(applicationContext).open()
+
+        if (db.isEmpty) {
+            val apiExplorer: WordAPIExplorer = WordAPIExplorer(applicationContext)
+            apiExplorer.execute()
+        }
     }
 
     override fun onClick(v: View?) {

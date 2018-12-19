@@ -30,7 +30,7 @@ class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word
     //Log.d(TAG, "db 삽입 결과 : " + rdb.toString())
 
     init {
-        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=30") // Service Key
+        urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key + "&numOfRows=12996") // Service Key
         //urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + key)
     }
 
@@ -171,7 +171,7 @@ class WordAPIExplorer(context: Context) : AsyncTask<String, Void, ArrayList<Word
         val db_result = db.displayColumn()
         val db_result_title = db.getTitle()
 
-        //Log.d("TAG", "db야 나와라 " +  db_result_title[30].toString())
+        Log.d("TAG", "db야 나와라 " +  db_result_title[10].toString())
 
         db.close()
 
