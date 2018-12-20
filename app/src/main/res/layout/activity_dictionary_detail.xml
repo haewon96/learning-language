@@ -48,7 +48,116 @@
         </TableRow>
     </TableLayout>
 
-    <TableLayout
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="의미"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/colorDictionary" />
+
+        <TextView
+            android:id="@+id/tv_semantic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="17dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="다른 의미"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/colorDictionary" />
+
+        <TextView
+            android:id="@+id/tv_dsemantic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="17dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="남한 문법"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/colorDictionary" />
+
+        <TextView
+            android:id="@+id/tv_sgram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="17dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="북한 문법"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/colorDictionary" />
+
+        <TextView
+            android:id="@+id/tv_ngram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="17dp"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+<!--    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
@@ -64,6 +173,7 @@
                 android:text="의미"
                 android:textSize="17dp"
                 android:textStyle="bold"
+                android:ellipsize="marquee"
                 />
 
             <TextView
@@ -128,5 +238,5 @@
                 android:textSize="17dp" />
         </TableRow>
 
-    </TableLayout>
+    </TableLayout>-->
 </LinearLayout>
